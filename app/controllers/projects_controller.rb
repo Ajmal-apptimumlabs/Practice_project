@@ -22,3 +22,4 @@ class ProjectsController < ApplicationController
     # Define other actions like 'show,' 'edit,' 'update,' and 'destroy' as needed.
   end
   
+  
