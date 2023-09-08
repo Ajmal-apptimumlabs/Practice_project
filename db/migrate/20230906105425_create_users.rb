@@ -4,12 +4,10 @@ def change
     t.string :name
     t.string :password
     t.string :email
-    t.integer :role, default: 0  # Add default value (0 in this example) for the enum
+    t.integer :role, default: 0
 
     t.timestamps
   end
-
-  # Define the enum values for the 'role' attribute
   add_index :users, :role
 end
 end
