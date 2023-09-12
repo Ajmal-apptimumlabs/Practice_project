@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_08_115459) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_112245) do
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_115459) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role", default: 0
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
@@ -50,16 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_115459) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manager_id"], name: "index_projects_on_manager_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "password"
-    t.string "email"
-    t.integer "role", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["role"], name: "index_users_on_role"
   end
 
   add_foreign_key "bugs", "developers"

@@ -1,1 +1,20 @@
-<h1> this is Projects </h1>
+
+<h1><%= @project.name %></h1>
+<p>Description: <%= @project.description %></p>
+
+<% if policy(@project).update? %>
+  <%= link_to "Edit", edit_project_path(@project) %>
+<% end %>
+
+<% if policy(@project).destroy? %>
+  <%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+
+<%= link_to "Back to Projects", projects_path %>
+
+<% if @project.nil? %>
+  <p>Project not found.</p>
+<% else %>
+  <h1><%= @project.name %></h1>
+  <!-- Other project details -->
+<% end %>
